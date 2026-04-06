@@ -17,6 +17,7 @@ that do not reveal secrets or user content.
 - A placeholder `.env.example` for local secrets
 - Git ignore rules for local OpenClaw data
 - Notes on how to keep private values on the local machine
+- Public-safe agent prompt templates in `agents/`
 
 ## What is excluded
 
@@ -40,6 +41,40 @@ Never commit these from a local OpenClaw install:
 3. Keep your real `~/.openclaw/` directory out of this repository.
 4. Commit only safe templates, docs, and helper scripts.
 
+## Install and run OpenClaw
+
+If you are setting up OpenClaw locally, these are the typical first commands:
+
+```bash
+# Install OpenClaw
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+# Run the onboarding wizard
+openclaw onboard --install-daemon
+
+# Check that the Gateway is running
+openclaw gateway status
+
+# Open the Control UI in your browser
+openclaw dashboard
+```
+
+If you prefer to verify the UI from the terminal first, you can also launch the
+interactive session view with:
+
+```bash
+openclaw tui
+```
+
+### Notes
+
+- `openclaw onboard --install-daemon` sets up the gateway and service for your
+	machine.
+- `openclaw dashboard` opens the browser-based Control UI.
+- `openclaw tui` is useful when you want a terminal UI for quick checks.
+- If you use Telegram or another channel, keep those bot tokens private and do
+	not commit them.
+
 ## Optional next step
 
 If you want, you can extend this repo with:
@@ -47,6 +82,19 @@ If you want, you can extend this repo with:
 - a private `.env.example`
 - a bootstrap script that restores the local OpenClaw config
 - public-safe agent templates without personal content
+
+## Agent prompt templates
+
+The `agents/` folder contains sanitized prompt files for:
+
+- `cv-writer`
+- `job-search`
+- `linkedin-content`
+- `interview-prep`
+
+These are meant as public-ready templates. Keep your live auth profiles,
+session history, memory files, and uploaded documents in your private OpenClaw
+installation only.
 
 ## Safety rule
 
