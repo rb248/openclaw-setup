@@ -18,6 +18,7 @@ that do not reveal secrets or user content.
 - Git ignore rules for local OpenClaw data
 - Notes on how to keep private values on the local machine
 - Public-safe agent prompt templates in `agents/`
+- Public-safe workspace markdown templates in `workspace/`
 
 ## What is excluded
 
@@ -95,6 +96,14 @@ The `agents/` folder contains sanitized prompt files for:
 These are meant as public-ready templates. Keep your live auth profiles,
 session history, memory files, and uploaded documents in your private OpenClaw
 installation only.
+
+## Workspace templates
+
+The `workspace/` folder mirrors the local workspace structure with generic,
+public-safe markdown files.
+
+Real dated memory files like `workspace/memory/2026-04-06.md` are intentionally
+left out of the public repo because they are private notes.
 
 ## Safety rule
 
