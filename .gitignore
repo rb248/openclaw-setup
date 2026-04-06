@@ -1,0 +1,35 @@
+# Keep runtime data and personal machine state out of git
+.openclaw/
+workspace/
+workspaces/
+memory/
+sessions/
+logs/
+media/
+credentials/
+delivery-queue/
+cron/runs/
+flows/registry.sqlite*
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.jsonl
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.mov
+*.mp4
+*.zip
+*.tar.gz
+*.bak
+*.bak.*
+*.backup.*
+*.clobbered.*
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.vscode/

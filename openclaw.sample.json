@@ -1,0 +1,102 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "your-default-model",
+        "fallbacks": [
+          "your-fallback-model-1",
+          "your-fallback-model-2"
+        ]
+      },
+      "workspace": "./workspace"
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "example-agent",
+        "name": "example-agent",
+        "agentDir": "./agents/example-agent/agent",
+        "workspace": "./agents/example-agent/workspace",
+        "tools": {
+          "profile": "full"
+        }
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "type": "route",
+      "agentId": "example-agent",
+      "match": {
+        "channel": "telegram",
+        "accountId": "example-agent"
+      }
+    }
+  ],
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "accounts": {
+        "example-agent": {
+          "botToken": "${TELEGRAM_BOT_TOKEN}",
+          "enabled": true
+        }
+      }
+    }
+  },
+  "gateway": {
+    "auth": {
+      "mode": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    },
+    "bind": "loopback",
+    "controlUi": {
+      "allowInsecureAuth": false
+    },
+    "mode": "local",
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    },
+    "port": 18789,
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "api": "ollama",
+        "apiKey": "OLLAMA_API_KEY",
+        "baseUrl": "http://127.0.0.1:11434"
+      }
+    }
+  }
+}
