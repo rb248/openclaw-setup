@@ -32,6 +32,11 @@ flows/registry.sqlite*
 Thumbs.db
 .vscode/
 
+# Local env secrets
+.env
+.env.*
+!.env.example
+
 # Private workspace journaling
 workspace/memory/[0-9][0-9][0-9][0-9]-*.md
 agents/*/memory/[0-9][0-9][0-9][0-9]-*.md
