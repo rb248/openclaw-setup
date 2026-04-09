@@ -20,6 +20,19 @@ that do not reveal secrets or user content.
 - Public-safe agent prompt templates in `agents/`
 - Public-safe workspace markdown templates in `workspace/`
 
+## Layout
+
+This repo now mirrors the OpenClaw split between **agent definition files**
+and **workspace files**:
+
+- `agents/<agent>/agent/` — public-safe agent prompts and identity files
+- `agents/<agent>/workspace/` — public-safe workspace templates and memory
+	placeholders
+
+The top-level `agents/` and `workspace/` folders remain as shared templates,
+while the nested folders show the same structure used by the local OpenClaw
+configuration.
+
 ## What is excluded
 
 Never commit these from a local OpenClaw install:
